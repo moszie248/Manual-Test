@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+env:
+  NAME: frontend-monster 
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - releases/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      # how to run test log
+      - name: Hello World
+        run: echo "Hello, World!"
